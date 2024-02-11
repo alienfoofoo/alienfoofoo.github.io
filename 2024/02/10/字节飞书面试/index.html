@@ -6,15 +6,15 @@
   
   <title>字节飞书面试 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="1.自我介绍华南师范大学计算机科学与技术专业学生 2.介绍一下项目3.你项目里怎么测试并发的4.你乐观锁怎么实现的（CAS）5.CAS底层怎么实现6. java有其他地方实现用到了CAS Atomic 类：Java 提供了一系列 Atomic 类，如 AtomicInteger、AtomicLong、AtomicReference 等，它们内部使用了 CAS 操作来保证线程安全。通过原子类，我们可">
+  <meta name="description" content="1.自我介绍华南师范大学计算机科学与技术专业学生 2.介绍一下项目3.你项目里怎么测试并发的4.你乐观锁怎么实现的（CAS）5.CAS底层怎么实现在 Java 中，CAS（Compare and Swap）是一种并发控制技术，常用于乐观锁机制和无锁数据结构。CAS 的底层实现通常涉及以下几个关键步骤：  原子读取：首先，从内存中读取变量的当前值。这确保了获取到的值是最新的。 比较操作：将读取到的变">
 <meta property="og:type" content="article">
 <meta property="og:title" content="字节飞书面试">
 <meta property="og:url" content="http://example.com/2024/02/10/%E5%AD%97%E8%8A%82%E9%A3%9E%E4%B9%A6%E9%9D%A2%E8%AF%95/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1.自我介绍华南师范大学计算机科学与技术专业学生 2.介绍一下项目3.你项目里怎么测试并发的4.你乐观锁怎么实现的（CAS）5.CAS底层怎么实现6. java有其他地方实现用到了CAS Atomic 类：Java 提供了一系列 Atomic 类，如 AtomicInteger、AtomicLong、AtomicReference 等，它们内部使用了 CAS 操作来保证线程安全。通过原子类，我们可">
+<meta property="og:description" content="1.自我介绍华南师范大学计算机科学与技术专业学生 2.介绍一下项目3.你项目里怎么测试并发的4.你乐观锁怎么实现的（CAS）5.CAS底层怎么实现在 Java 中，CAS（Compare and Swap）是一种并发控制技术，常用于乐观锁机制和无锁数据结构。CAS 的底层实现通常涉及以下几个关键步骤：  原子读取：首先，从内存中读取变量的当前值。这确保了获取到的值是最新的。 比较操作：将读取到的变">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-02-09T17:53:09.000Z">
-<meta property="article:modified_time" content="2024-02-09T18:01:48.075Z">
+<meta property="article:modified_time" content="2024-02-09T19:21:43.867Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -94,13 +94,86 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
         <h2 id="1-自我介绍"><a href="#1-自我介绍" class="headerlink" title="1.自我介绍"></a>1.自我介绍</h2><p>华南师范大学计算机科学与技术专业学生</p>
-<h2 id="2-介绍一下项目"><a href="#2-介绍一下项目" class="headerlink" title="2.介绍一下项目"></a>2.介绍一下项目</h2><h2 id="3-你项目里怎么测试并发的"><a href="#3-你项目里怎么测试并发的" class="headerlink" title="3.你项目里怎么测试并发的"></a>3.你项目里怎么测试并发的</h2><h2 id="4-你乐观锁怎么实现的（CAS）"><a href="#4-你乐观锁怎么实现的（CAS）" class="headerlink" title="4.你乐观锁怎么实现的（CAS）"></a>4.你乐观锁怎么实现的（CAS）</h2><h2 id="5-CAS底层怎么实现"><a href="#5-CAS底层怎么实现" class="headerlink" title="5.CAS底层怎么实现"></a>5.CAS底层怎么实现</h2><h2 id="6-java有其他地方实现用到了CAS"><a href="#6-java有其他地方实现用到了CAS" class="headerlink" title="6. java有其他地方实现用到了CAS"></a>6. java有其他地方实现用到了CAS</h2><ol>
-<li>Atomic 类：Java 提供了一系列 Atomic 类，如 <code>AtomicInteger</code>、<code>AtomicLong</code>、<code>AtomicReference</code> 等，它们内部使用了 CAS 操作来保证线程安全。通过原子类，我们可以在多线程环境下高效地进行原子操作，而无需使用显式的锁。</li>
-<li>同步器（Synchronizer）：Java 并发包中的一些同步器，如 <code>Semaphore</code>、<code>CountDownLatch</code>、<code>CyclicBarrier</code> 等，也使用了 CAS 机制来进行线程间同步、协作和阻塞。通过 CAS 操作，这些同步器能够高效地进行状态的修改和线程的等待与唤醒。</li>
-<li>乐观锁机制：在数据库访问、缓存更新等需要保证数据一致性的场景中，乐观锁通常使用 CAS 算法实现。通过比较当前值与预期值的一致性，来决定是否更新数据。常见的示例是通过乐观锁来实现数据库的版本控制。</li>
-<li>无锁数据结构：无锁（Lock-Free）数据结构是指在并发场景下不使用显式锁的数据结构。例如，Java 并发包中的 <code>ConcurrentHashMap</code>、<code>ConcurrentLinkedQueue</code> 等数据结构使用了 CAS 操作来实现并发安全性。</li>
+<h2 id="2-介绍一下项目"><a href="#2-介绍一下项目" class="headerlink" title="2.介绍一下项目"></a>2.介绍一下项目</h2><h2 id="3-你项目里怎么测试并发的"><a href="#3-你项目里怎么测试并发的" class="headerlink" title="3.你项目里怎么测试并发的"></a>3.你项目里怎么测试并发的</h2><h2 id="4-你乐观锁怎么实现的（CAS）"><a href="#4-你乐观锁怎么实现的（CAS）" class="headerlink" title="4.你乐观锁怎么实现的（CAS）"></a>4.你乐观锁怎么实现的（CAS）</h2><h2 id="5-CAS底层怎么实现"><a href="#5-CAS底层怎么实现" class="headerlink" title="5.CAS底层怎么实现"></a>5.CAS底层怎么实现</h2><p>在 Java 中，CAS（Compare and Swap）是一种并发控制技术，常用于乐观锁机制和无锁数据结构。CAS 的底层实现通常涉及以下几个关键步骤：</p>
+<ol>
+<li><strong>原子读取</strong>：首先，从内存中读取变量的当前值。这确保了获取到的值是最新的。</li>
+<li><strong>比较操作</strong>：将读取到的变量值与期望的值进行比较。如果两者相等，则表示变量的状态没有被其他线程修改。</li>
+<li><strong>写入操作</strong>：如果比较操作成功（变量的状态未被修改），则将新值写入变量。如果比较操作失败（变量的状态被修改），则说明其他线程已经修改了该变量，需要重新读取最新值并再次尝试比较和写入，直至成功。</li>
+<li><strong>返回结果</strong>：无论写入操作是否成功，CAS 都会返回一个指示操作结果的标志。通常是一个布尔类型的成功或失败标志。</li>
 </ol>
-<h2 id="7-redis有哪些数据结构"><a href="#7-redis有哪些数据结构" class="headerlink" title="7.redis有哪些数据结构"></a>7.redis有哪些数据结构</h2><h2 id="8-geo怎么存地理位置的"><a href="#8-geo怎么存地理位置的" class="headerlink" title="8.geo怎么存地理位置的"></a>8.geo怎么存地理位置的</h2><h2 id="9-代码题：leetcode88-合并两个有序数组"><a href="#9-代码题：leetcode88-合并两个有序数组" class="headerlink" title="9.代码题：leetcode88.合并两个有序数组"></a>9.代码题：leetcode88.合并两个有序数组</h2><h2 id="10-合并三个有序数组怎么做"><a href="#10-合并三个有序数组怎么做" class="headerlink" title="10.合并三个有序数组怎么做"></a>10.合并三个有序数组怎么做</h2><h2 id="11-实现一个小顶堆（不会）-那小顶堆数据结构介绍一下"><a href="#11-实现一个小顶堆（不会）-那小顶堆数据结构介绍一下" class="headerlink" title="11.实现一个小顶堆（不会）    那小顶堆数据结构介绍一下"></a>11.实现一个小顶堆（不会）    那小顶堆数据结构介绍一下</h2><h2 id="12-java里的linklist和arraylist的区别"><a href="#12-java里的linklist和arraylist的区别" class="headerlink" title="12.java里的linklist和arraylist的区别"></a>12.java里的linklist和arraylist的区别</h2><h2 id="13-java里面有八种基本数据类型，说一下"><a href="#13-java里面有八种基本数据类型，说一下" class="headerlink" title="13.java里面有八种基本数据类型，说一下"></a>13.java里面有八种基本数据类型，说一下</h2><h2 id="14-int和double的区别，两个的存储范围是多少？"><a href="#14-int和double的区别，两个的存储范围是多少？" class="headerlink" title="14.int和double的区别，两个的存储范围是多少？"></a>14.int和double的区别，两个的存储范围是多少？</h2><h2 id="15-浮点型的存储方式，以及浮点型怎么表示数的"><a href="#15-浮点型的存储方式，以及浮点型怎么表示数的" class="headerlink" title="15.浮点型的存储方式，以及浮点型怎么表示数的"></a>15.浮点型的存储方式，以及浮点型怎么表示数的</h2>
+<p>底层实现 CAS 的实际机制依赖于<strong>硬件平台和操作系统</strong>的支持。常见的实现方式是使用<strong>原子指令</strong>，在单处理器上能够保证原子性。在多处理器或多核系统中，通常会使用<strong>特殊的指令</strong>（如 Compare and Swap、Load Linked&#x2F;Store Conditional）来确保多线程下的原子性操作。</p>
+<p>Java 的 <code>java.util.concurrent.atomic</code> 包中提供了 <strong>Atomic 类</strong>，如 <code>AtomicInteger</code>、<code>AtomicLong</code>、<code>AtomicReference</code> 等，它们内部使用了底层的 CAS 操作来实现线程安全的原子操作。</p>
+<p>需要注意的是，虽然 CAS 可以提供高效且无锁的并发操作，但它也可能存在一些问题，如ABA 问题、自旋使用过多等。因此，在使用 CAS 时需要仔细考虑其适用性和潜在的问题，并根据具体场景进行合理的选择。</p>
+<h2 id="6-java有其他地方实现用到了CAS"><a href="#6-java有其他地方实现用到了CAS" class="headerlink" title="6. java有其他地方实现用到了CAS"></a>6. java有其他地方实现用到了CAS</h2><ol>
+<li><strong>Atomic 类：</strong>Java 提供了一系列 Atomic 类，如 <code>AtomicInteger</code>、<code>AtomicLong</code>、<code>AtomicReference</code> 等，它们内部使用了 CAS 操作来保证线程安全。通过原子类，我们可以在多线程环境下高效地进行原子操作，而无需使用显式的锁。</li>
+<li><strong>同步器（Synchronizer）</strong>：Java 并发包中的一些同步器，如 <code>Semaphore</code>、<code>CountDownLatch</code>、<code>CyclicBarrier</code> 等，也使用了 CAS 机制来进行线程间同步、协作和阻塞。通过 CAS 操作，这些同步器能够高效地进行状态的修改和线程的等待与唤醒。</li>
+<li><strong>乐观锁机制</strong>：在数据库访问、缓存更新等需要保证数据一致性的场景中，乐观锁通常使用 CAS 算法实现。通过比较当前值与预期值的一致性，来决定是否更新数据。常见的示例是通过乐观锁来实现数据库的版本控制。</li>
+<li><strong>无锁数据结构：</strong>无锁（Lock-Free）数据结构是指在并发场景下不使用显式锁的数据结构。例如，Java 并发包中的 <code>ConcurrentHashMap</code>、<code>ConcurrentLinkedQueue</code> 等数据结构使用了 CAS 操作来实现并发安全性。</li>
+</ol>
+<h2 id="7-redis有哪些数据结构"><a href="#7-redis有哪些数据结构" class="headerlink" title="7.redis有哪些数据结构"></a>7.redis有哪些数据结构</h2><p>Redis是键值对的数据库 </p>
+<p><strong>string</strong>：用于存放字符串，整数，浮点数等数据。</p>
+<p><strong>hash</strong>：类似于java的哈希表。</p>
+<p><strong>list（有序集合）</strong>：有序的字符串列表，允许在列表两端进行插入和删除操作。</p>
+<p><strong>set（无序集合不可重复）</strong>：唯一无序的字符串集合，提供交集，并集，差集的操作。</p>
+<p><strong>sortedset</strong>：类似于集合，但每一个元素都有一个分数，可以根据分数进行排序和范围查找。</p>
+<p><strong>geo（地理坐标）</strong>：支持地理位置信息，可以进行地理位置查询和计算。</p>
+<p><strong>bitmap</strong>：用于位级操作，可存储和操作二进制位。</p>
+<p><strong>hyperlog（原子计数器）</strong>：用于估计唯一元素的个数，具有很高的近似精度和固定的内存占用。</p>
+<p><strong>Bloom Filter（ 布隆过滤器）</strong>：用于判断元素是否存在于集合中，具有高效的查询和低内存占用。</p>
+<p>后三种是特殊类型，实现特殊功能使用</p>
+<h2 id="8-geo怎么存地理位置的"><a href="#8-geo怎么存地理位置的" class="headerlink" title="8.geo怎么存地理位置的"></a>8.geo怎么存地理位置的</h2><p>在Redis中，地理位置信息可以使用有序集合（Sorted Set）和对应的GEO命令操作和存储。有序集合可以通过分数来进行排序，而地理位置的经度和维度可以作为分数来表示</p>
+<p>GEO提供以下命令</p>
+<p>GEOADD：将地理位置的经度，纬度和对应的成员名添加到有序集合中。</p>
+<p>GEOADD key longitude latitude member [~]</p>
+<p>例: </p>
+<p><code>GEOADD cities 13.361389 38.115556 &quot;Palermo&quot; 15.087269 37.502669 &quot;Catas&quot;</code></p>
+<p>GEODIST:计算两个成员间的距离。</p>
+<p>GEODIST key member1 member2 [unit]</p>
+<p><code>GEODIST cities &quot;Palermo&quot; &quot;Catas&quot; km</code></p>
+<p>GEOHASH:获取成员的Geohash值</p>
+<p>GEOHASH key member [member …]</p>
+<p><code>GEOHASH cities &quot;Palermo&quot; &quot;Catas&quot;</code></p>
+<p>GEOPOS:获取给定成员的经度和纬度</p>
+<p>GEOPOS key member [member …]</p>
+<p>GEORADIUS和GEORADIUSBYMEMBER：按照距离获取成员</p>
+<h2 id="9-代码题：leetcode88-合并两个有序数组"><a href="#9-代码题：leetcode88-合并两个有序数组" class="headerlink" title="9.代码题：leetcode88.合并两个有序数组"></a>9.代码题：leetcode88.合并两个有序数组</h2><h2 id="10-合并三个有序数组怎么做"><a href="#10-合并三个有序数组怎么做" class="headerlink" title="10.合并三个有序数组怎么做"></a>10.合并三个有序数组怎么做</h2><h2 id="11-实现一个小顶堆（不会）-那小顶堆数据结构介绍一下"><a href="#11-实现一个小顶堆（不会）-那小顶堆数据结构介绍一下" class="headerlink" title="11.实现一个小顶堆（不会）    那小顶堆数据结构介绍一下"></a>11.实现一个小顶堆（不会）    那小顶堆数据结构介绍一下</h2><h2 id="12-java里的linklist和arraylist的区别"><a href="#12-java里的linklist和arraylist的区别" class="headerlink" title="12.java里的linklist和arraylist的区别"></a>12.java里的linklist和arraylist的区别</h2><h2 id="13-java里面有八种基本数据类型，说一下"><a href="#13-java里面有八种基本数据类型，说一下" class="headerlink" title="13.java里面有八种基本数据类型，说一下"></a>13.java里面有八种基本数据类型，说一下</h2><p>在 Java 中，共有八种基本数据类型，它们包括：</p>
+<ol>
+<li>boolean：用于表示逻辑值，只能取两个值之一，即 true 或 false。</li>
+<li>byte：用于表示整数值，范围为 -128 到 127。</li>
+<li>short：用于表示整数值，范围为 -32,768 到 32,767。</li>
+<li>int：用于表示整数值，范围为 -2,147,483,648 到 2,147,483,647。</li>
+<li>long：用于表示较大的整数值，范围为 -9,223,372,036,854,775,808 到 9,223,372,036,854,775,807。</li>
+<li>float：用于表示浮点数值，范围为 3.4e-38 到 3.4e+38，精度约为 6-7 位小数。</li>
+<li>double：用于表示较大的浮点数值，范围为 1.7e-308 到 1.7e+308，精度约为 15 位小数。</li>
+<li>char：用于表示单个字符，存储 Unicode 字符，范围为 0 到 65535。</li>
+</ol>
+<h2 id="14-int和double的区别，两个的存储范围是多少？"><a href="#14-int和double的区别，两个的存储范围是多少？" class="headerlink" title="14.int和double的区别，两个的存储范围是多少？"></a>14.int和double的区别，两个的存储范围是多少？</h2><ol>
+<li>int:<ul>
+<li>类型名：int</li>
+<li>存储范围：-2,147,483,648 到 2,147,483,647（包括两个边界值）</li>
+<li>字节大小：4 字节（32 位）</li>
+</ul>
+</li>
+<li>double:<ul>
+<li>类型名：double</li>
+<li>存储范围：1.7976931348623157 x 10^308 到 4.94065645841247 x 10^-324</li>
+<li>字节大小：8 字节（64 位）</li>
+</ul>
+</li>
+</ol>
+<h2 id="15-浮点型的存储方式，以及浮点型怎么表示数的"><a href="#15-浮点型的存储方式，以及浮点型怎么表示数的" class="headerlink" title="15.浮点型的存储方式，以及浮点型怎么表示数的"></a>15.浮点型的存储方式，以及浮点型怎么表示数的</h2><p>在计算机中，浮点数的存储方式是使用 IEEE 754 标准定义的浮点数表示法。这种表示法基于科学计数法，将一个浮点数分为三个部分：符号位、指数位和尾数位。</p>
+<p>具体来说，在 IEEE 754 标准中，双精度浮点数（double）被存储为 64 位，如下所示：</p>
+<p><strong>1 位符号位 + 11 位指数位 + 52 位尾数位</strong></p>
+<p>浮点数的符号位指示数值的正负，0 表示正数，1 表示负数。</p>
+<p>指数位用于表示十进制小数点的位置对应二进制小数点的移动。它通过使用偏置表示法来编码实际指数值，其中中间的 2^11（2 的 11 次方）用作偏置。这意味着指<strong>数位通常可以表示 -1022 到 1023</strong> 之间的值，其中 0 表示指数全为 0，表示 0 或者非规格化的数值。</p>
+<p>尾数位是浮点数的小数部分，用于表示数值的精度和有效位数。尾数位加权求和可以通过将每位的二进制表示乘以相应的权重（2 的负整数次方）来计算出实际值。</p>
+<p>总之，浮点数的存储方式使用 IEEE 754 标准，将浮点数分为符号位、指数位和尾数位。通过符号位的正负、指数位的偏置值以及尾数位的小数表示，可以精确地表示浮点数的数值。</p>
+<p>尾数位决定了浮点数的有效位数，也就是浮点数的精度。</p>
+<p>在 IEEE 754 标准中，双精度浮点数（double）的尾数位有 52 位，<strong>这意味着双精度浮点数最多可以精确表示 15 到 17 位的十进制数。</strong>这是因为对于大部分十进制数，它们的二进制表示在 15 到 17 位之间。</p>
+<p><strong>如果存储的浮点数的大小超过了尾数位能表示的范围，就会发生舍入误差</strong>。当浮点数的数值非常大或者非常小时，尾数位的有效精度会被减少。这是因为尾数位的位数是固定的，并不能精确地表示无限的小数位。超过尾数位能表示的精度范围的部分会被丢失，导致舍入误差。</p>
+<p>例如，当存储的浮点数非常小且接近零时，尾数位无法表示足够多的小数位，可能导致舍入误差和精度丢失。同样地，当存储的浮点数非常大时，尾数位表示的精度也可能不足，导致舍入误差和精度丢失。</p>
+<p>因此，在进行浮点数计算时，尤其是需要高精度计算或对准确性要求较高的场景，应当格外注意浮点数的舍入误差和精度问题，并考虑使用例如 BigDecimal 类型等更适合精确计算的数据类型。</p>
+
       
     </div>
     <footer class="article-footer">
