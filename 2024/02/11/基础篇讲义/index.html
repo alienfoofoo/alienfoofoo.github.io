@@ -13,18 +13,19 @@
 <meta property="og:site_name" content="alienfoofoo">
 <meta property="og:description" content="基础篇  基础篇要点：算法、数据结构、基础设计模式  1. 二分查找要求  能够用自己语言描述二分查找算法 能够手写二分查找代码 能够解答一些变化后的考法  算法描述  前提：有已排序数组 A（假设已经做好）  定义左边界 L、右边界 R，确定搜索范围，循环执行二分查找（3、4两步）  获取中间索引 M &#x3D; Floor((L+R) &#x2F;2)  中间索引的值  A[M] 与待搜索的">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="d:\usagiBlog\blog\source\%E5%9B%BE%E7%89%87\%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F\%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F.drawio.png">
 <meta property="og:image" content="http://example.com/img/image-20210831084325075.png">
 <meta property="og:image" content="http://example.com/img/image-20210831084723383.png">
 <meta property="og:image" content="http://example.com/img/image-20210831084855348.png">
 <meta property="og:image" content="http://example.com/img/image-20210831085329449.png">
 <meta property="og:image" content="http://example.com/img/image-20210831085543224.png">
 <meta property="article:published_time" content="2024-02-11T13:00:00.000Z">
-<meta property="article:modified_time" content="2024-02-11T13:19:52.878Z">
+<meta property="article:modified_time" content="2024-02-11T15:39:46.599Z">
 <meta property="article:author" content="usagi">
 <meta property="article:tag" content="排序">
 <meta property="article:tag" content="集合">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/img/image-20210831084325075.png">
+<meta name="twitter:image" content="d:\usagiBlog\blog\source\%E5%9B%BE%E7%89%87\%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F\%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F.drawio.png">
   
     <link rel="alternate" href="/atom.xml" title="alienfoofoo" type="application/atom+xml">
   
@@ -90,7 +91,7 @@
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Java%E5%9F%BA%E7%A1%80/">Java基础</a>
+    <a class="article-category-link" href="/categories/Java%E9%9D%A2%E8%AF%95/">Java面试</a>
   </div>
 
   </div>
@@ -294,6 +295,7 @@
 <p><strong>算法实现</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">shell</span><span class="params">(<span class="type">int</span>[] a)</span> &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> a.length;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">gap</span> <span class="operator">=</span> n / <span class="number">2</span>; gap &gt; <span class="number">0</span>; gap /= <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="comment">// i 代表待插入元素的索引</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> gap; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">t</span> <span class="operator">=</span> a[i]; <span class="comment">// 代表待插入的元素值</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> i;</span><br><span class="line">            <span class="keyword">while</span> (j &gt;= gap) &#123;</span><br><span class="line">                <span class="comment">// 每次与上一个间隙为 gap 的元素进行插入排序</span></span><br><span class="line">                <span class="keyword">if</span> (t &lt; a[j - gap]) &#123; <span class="comment">// j-gap 是上一个元素索引，如果 &gt; t，后移</span></span><br><span class="line">                    a[j] = a[j - gap];</span><br><span class="line">                    j -= gap;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123; <span class="comment">// 如果 j-1 已经 &lt;= t, 则 j 就是插入位置</span></span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            a[j] = t;</span><br><span class="line">            System.out.println(Arrays.toString(a) + <span class="string">&quot; gap:&quot;</span> + gap);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p><img src="D:\usagiBlog\blog\source\图片\希尔排序\希尔排序.drawio.png"></p>
 <p><strong>参考资料</strong></p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Shellsort">https://en.wikipedia.org/wiki/Shellsort</a></li>
@@ -324,7 +326,7 @@
 </li>
 <li><p>j 指针负责找到比基准点小的元素，一旦找到则与 i 进行交换</p>
 </li>
-<li><p>i 指针维护小于基准点元素的边界，也是每次交换的目标索引</p>
+<li><p>i 指针维护小于基准点元素的边界，也是每次交换的目标索引，确保i的左边元素都比基准点小</p>
 </li>
 <li><p>最后基准点与 i 交换，i 即为分区位置</p>
 </li>
@@ -671,6 +673,15 @@
     
 <nav id="article-nav">
   
+    <a href="/2024/02/11/%E5%B9%B6%E5%8F%91%E7%AF%87%E8%AE%B2%E4%B9%89/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          Java并发
+        
+      </div>
+    </a>
+  
   
     <a href="/2024/02/10/%E5%AD%97%E8%8A%82%E9%A3%9E%E4%B9%A6%E9%9D%A2%E8%AF%95/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">后一篇</strong>
@@ -691,7 +702,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Java%E5%9F%BA%E7%A1%80/">Java基础</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Java%E9%9D%A2%E8%AF%95/">Java面试</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java%E9%9D%A2%E8%AF%95%E9%A2%98/">Java面试题</a></li></ul>
     </div>
   </div>
 
@@ -701,7 +712,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%92%E5%BA%8F/" rel="tag">排序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9B%86%E5%90%88/" rel="tag">集合</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java%E5%B9%B6%E5%8F%91/" rel="tag">Java并发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%92%E5%BA%8F/" rel="tag">排序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9B%86%E5%90%88/" rel="tag">集合</a></li></ul>
     </div>
   </div>
 
@@ -711,7 +722,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/%E6%8E%92%E5%BA%8F/" style="font-size: 10px;">排序</a> <a href="/tags/%E9%9B%86%E5%90%88/" style="font-size: 10px;">集合</a>
+      <a href="/tags/Java%E5%B9%B6%E5%8F%91/" style="font-size: 10px;">Java并发</a> <a href="/tags/%E6%8E%92%E5%BA%8F/" style="font-size: 10px;">排序</a> <a href="/tags/%E9%9B%86%E5%90%88/" style="font-size: 10px;">集合</a>
     </div>
   </div>
 
@@ -731,6 +742,10 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2024/02/11/%E5%B9%B6%E5%8F%91%E7%AF%87%E8%AE%B2%E4%B9%89/">Java并发</a>
+          </li>
         
           <li>
             <a href="/2024/02/11/%E5%9F%BA%E7%A1%80%E7%AF%87%E8%AE%B2%E4%B9%89/">Java基础</a>
