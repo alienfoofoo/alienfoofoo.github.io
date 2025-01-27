@@ -14,12 +14,12 @@
 <meta property="og:description" content="写在最前面​		在B站上刨了非常多关于方法论的，个人行为逻辑，社会阶层分化，宏观微观经济，教育就业等等相关的内容，这其中有很大部分都是营销号输出情绪，输出负能量的东西，毕竟是屁股决定脑袋，他们就靠这种手段或是卖课或是引流来赚钱，更多的是评论区的，大多数全是负面的情绪输出，几乎没有任何价值。但是当时就是特别闲，喜欢屎里掏金，也算是有一些收获。我想把我学到的东西结合一下个人经历做一些输出，会有很多拾人">
 <meta property="og:locale">
 <meta property="article:published_time" content="2025-01-21T18:23:40.000Z">
-<meta property="article:modified_time" content="2025-01-25T17:42:39.356Z">
+<meta property="article:modified_time" content="2025-01-27T17:46:32.847Z">
 <meta property="article:author" content="Usagi">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="icon" href="/img/avatar.jpg">
+<link rel="icon" href="/img/gou.jpg">
 
 <link href="/css/style.css?v=1.1.0" rel="stylesheet">
 
@@ -125,7 +125,7 @@
     <li>
         <div class="all active" data-rel="All">All
             
-                <small>(5)</small>
+                <small>(8)</small>
             
         </div>
     </li>
@@ -164,10 +164,25 @@
             
                 
     <li>
+        <div data-rel="technology">
+            
+            technology
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
         <div data-rel="thinking">
             
             thinking
-            <small>(1)</small>
+            <small>(3)</small>
         </div>
         
     </li>
@@ -200,8 +215,8 @@
         
     </div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="5">
-
+<input type="hidden" id="yelog_site_posts_number" value="8">
+<input type="hidden" id="yelog_site_word_count" value="4.7k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -246,6 +261,14 @@
     <input id="tag-search" />
     <div class="tag-wrapper">
         
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>golang</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Transcribe</a>
+            </li>
+        
     </div>
 
 </div>
@@ -256,6 +279,33 @@
     </div>
     
     <nav id="title-list-nav">
+        
+        
+        <a  class="All technology "
+           href="/2025/01/27/technology/golang%E5%9F%BA%E7%A1%80/"
+           data-tag="golang"
+           data-author="" >
+            <span class="post-title" title="golang基础">golang基础</span>
+            <span class="post-date" title="2025-01-27 21:40:43">2025/01/27</span>
+        </a>
+        
+        
+        <a  class="All thinking "
+           href="/2025/01/27/Thinking/%E5%AE%B6%E5%BA%AD%E7%8E%AF%E5%A2%83/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="个人家庭环境的事实与分析">个人家庭环境的事实与分析</span>
+            <span class="post-date" title="2025-01-27 21:40:43">2025/01/27</span>
+        </a>
+        
+        
+        <a  class="All thinking "
+           href="/2025/01/27/Thinking/%E5%BE%AE%E4%BF%A1%E5%AE%9E%E4%B9%A0%E6%80%BB%E7%BB%93/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="微信实习总结">微信实习总结</span>
+            <span class="post-date" title="2025-01-27 21:40:43">2025/01/27</span>
+        </a>
         
         
         <a  class="All fittingPlan "
@@ -296,7 +346,7 @@
         
         <a  class="All ModernMusic "
            href="/2025/01/22/ModernMusic/Transcribe/%E5%B8%9D%E5%9B%BD%E5%B0%91%E5%A5%B3/"
-           data-tag=""
+           data-tag="Transcribe"
            data-author="" >
             <span class="post-title" title="帝国少女扒谱">帝国少女扒谱</span>
             <span class="post-date" title="2025-01-22 01:36:32">2025/01/22</span>
@@ -340,10 +390,12 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2025-01-26 01:42:39'>2025-01-22 02:23</time>
+            Created At : <time class="date" title='Updated At: 2025-01-28 01:46:32'>2025-01-22 02:23</time>
         
     </div>
     <div class="article-meta">
+        
+        <span>Count:4k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -387,6 +439,9 @@
     .toc-level-3 ol {
         display: none !important;
     }
+    #toc-ref {
+        color: #FF0000; /* 这里将颜色设置为红色，你可以根据需要修改 */
+    }
 </style>
 </div>
     
@@ -417,10 +472,6 @@
 <!--
 
 -->
-
-<p>
-    <a  class="dashang" onclick="dashangToggle()">💰</a>
-</p>
 
 <!--
 
@@ -453,9 +504,20 @@
 
     
 
+<!--
+
+-->
 
 
-
+<style>
+        .pjax{
+            background-color: gray;
+            background: url() !important;
+            z-index: 100;
+            background-size: cover;
+            background-position: center;
+        }
+</style>
     </div>
     <!--
   
@@ -478,34 +540,6 @@
 
 </div>
 
-<div class="hide_box" onclick="dashangToggle()"></div>
-<div class="shang_box">
-    <a class="shang_close"  onclick="dashangToggle()">×</a>
-    <div class="shang_tit">
-        <p>加我细嗦</p>
-    </div>
-    <div class="shang_payimg">
-        <div class="pay_img">
-            <img src="/img/qq.jpg" class="QQ" title="恰个q">
-            <img src="/img/weixin.jpg" class="weixin" title="恰个v">
-        </div>
-    </div>
-    <div class="shang_payselect">
-        <span><label><input type="radio" name="pay" checked value="QQ">QQ</label></span><span><label><input type="radio" name="pay" value="weixin">weixin</label></span>
-    </div>
-</div>
-<style>
- .QQ {
-    max-width: 300px;
-    max-height: 260px;
-  }
-  .weixin {
-    max-width: 300px;
-    max-height: 260px;
-  }
-  </style>
-
-
 <script src="/js/jquery.pjax.js?v=1.1.0" ></script>
 
 <script src="/js/script.js?v=1.1.0" ></script>
@@ -518,14 +552,6 @@
         
 
         /*渲染打赏样式*/
-        
-        $("input[name=pay]").on("click", function () {
-            if($("input[name=pay]:checked").val()=="weixin"){
-                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
-            } else {
-                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
-            }
-        })
         
 
         /*高亮代码块行号*/
@@ -545,11 +571,6 @@
 
     /*打赏页面隐藏与展示*/
     
-    function dashangToggle() {
-        $(".shang_box").fadeToggle();
-        $(".hide_box").fadeToggle();
-    }
-    
 
 </script>
 
@@ -560,33 +581,33 @@
     
     
     .nav {
-        width: 542px;
+        width: 572px;
     }
     .nav.fullscreen {
-        margin-left: -542px;
+        margin-left: -572px;
     }
     .nav-left {
-        width: 120px;
+        width: 150px;
     }
     
     
     @media screen and (max-width: 1468px) {
         .nav {
-            width: 512px;
+            width: 542px;
         }
         .nav.fullscreen {
-            margin-left: -512px;
+            margin-left: -542px;
         }
         .nav-left {
-            width: 120px;
+            width: 150px;
         }
     }
     
     
     @media screen and (max-width: 1024px) {
         .nav {
-            width: 512px;
-            margin-left: -512px
+            width: 542px;
+            margin-left: -542px
         }
         .nav.fullscreen {
             margin-left: 0;
@@ -604,19 +625,23 @@
     
     
     .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
-        color: #383636;
+        color: #FFBBFF;
     }
     
     
     .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
-        color: #5e5e5f;
+        color: #BF3EFF;
     }
     
     
     .nav-right nav a.hover, #local-search-result a.hover{
-        background-color: #e2e0e0;
+        background-color: #836FFF;
     }
     
+    
+    .nav-right nav a.hover > span{
+        color: #836FFF !important;
+    }
     
 
     /*列表样式*/
@@ -624,6 +649,14 @@
 
     /* 背景图样式 */
     
+    #post {
+        background: url(/img/darkforest.jpg);
+    }
+    
+    
+    #post .index {
+        background: url(/img/darkforest.jpg);
+    }
     
 
 
@@ -640,8 +673,8 @@
         top: 0;
         width: 100%;
         height: 100%;
-        opacity: 0.5;
-        background: url("https://i.loli.net/2019/07/22/5d3521411f3f169375.png");
+        opacity: 1;
+        background: url("/img/darkforest.jpg");
         background-repeat: no-repeat;
         background-position: 50% 0;
         -ms-background-size: cover;
@@ -677,5 +710,11 @@
 <!--
 
 -->
-
+<style>
+    #pjax {
+        background-image: url('D:UsagiBlog\\alienfoofoo.gitlab.io\\themes\\3-hexo\\source\\img\\darkforest.jpg');
+        background-size: cover;
+        background-position: center;
+    }
+</style>
 </html>
